@@ -1,0 +1,13 @@
+{
+  "display_name": "SillyTavern Link",
+  "loading_order": -10000,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "rong3742rrr-hub",
+  "homePage": "https://github.com/rong3742rrr-hub/sillytavern-link",
+  "version": "1.0.2",
+  "minimum_client_version": "1.19.0",
+  "description": "电脑优先初始化，设置、本地存储及 IndexedDB 双向同步。"
+}

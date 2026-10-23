@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+const root = path.resolve('tests/runtime/SillyTavern-test');
+const require = createRequire(path.join(root,'package.json'));
+const yaml = require('yaml');
+const file = path.join(root,'config.yaml');
+const config = yaml.parse(fs.readFileSync(file,'utf8'));
+Object.assign(config,{port:18190,listen:false,dataRoot:path.join(root,'data'),enableServerPlugins:true,enableServerPluginsAutoUpdate:false,enableDownloadableTokenizers:false});
+config.browserLaunch.enabled=false;
+config.extensions.autoUpdate=false;
+fs.writeFileSync(file,yaml.stringify(config));
+console.log('Isolated runtime configured on 127.0.0.1:18190; no personal data copied.');
